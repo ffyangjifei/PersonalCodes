@@ -1,3 +1,6 @@
+///
+///自动保存预制体对应的烘焙贴图信息
+///
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
