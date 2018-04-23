@@ -1,4 +1,5 @@
-    public static int GetOneRandomItemByWeight(int[] items)
+//int-->T
+public static int GetOneRandomItemByWeight(int[] items)
     {
         float maxPower = 0;
         foreach (var item in items)
