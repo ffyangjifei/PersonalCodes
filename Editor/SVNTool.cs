@@ -67,7 +67,7 @@ public class SVNTool : Editor
     public static void SVNSubmitAssets()
     {
         string path = Application.dataPath;
-        string args = @"/command:commit /path:""" + path + @""" /closeonend:2 /logmsg:""111111111""";
+        string args = @"/command:commit /path:""" + path + @""" /closeonend:2";
         StartProcess(args);
     }
 
