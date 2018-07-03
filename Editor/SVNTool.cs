@@ -15,7 +15,7 @@ using System.Reflection;
 **************************************************/
 public class SVNTool : Editor
 {
-    [MenuItem("Assets/SVNTool/更新",false,100)]
+    [MenuItem("Assets/SVNTool/更新", false, 100)]
     public static void SVNUpdate()
     {
         string[] paths = getSelectedPaths();
@@ -28,7 +28,7 @@ public class SVNTool : Editor
         string[] paths = getSelectedPaths();
         return paths.Length > 0;
     }
-    [MenuItem("Assets/SVNTool/提交",false,200)]
+    [MenuItem("Assets/SVNTool/提交", false, 200)]
     public static void SVNSubmmit()
     {
         string[] paths = getSelectedPaths();
@@ -41,7 +41,7 @@ public class SVNTool : Editor
         string[] paths = getSelectedPaths();
         return paths.Length > 0;
     }
-    [MenuItem("Assets/SVNTool/日志",false,300)]
+    [MenuItem("Assets/SVNTool/日志", false, 300)]
     public static void SVNLog()
     {
         string[] paths = getSelectedPaths();
@@ -55,11 +55,27 @@ public class SVNTool : Editor
         return paths.Length > 0;
     }
 
+    [MenuItem("Assets/SVNTool/更新Project %#DOWN", false, 100)]
+    public static void SVNUpdateProject()
+    {
+        string path = Application.dataPath;
+        string args = @"/command:update /path:""..\" + path + @""" /closeonend:2";
+        StartProcess(args);
+    }
+
+    [MenuItem("Assets/SVNTool/上传Assets %#UP", false, 100)]
+    public static void SVNSubmitAssets()
+    {
+        string path = Application.dataPath;
+        string args = @"/command:commit /path:""" + path + @""" /closeonend:2 /logmsg:""111111111""";
+        StartProcess(args);
+    }
+
     private static string[] getSelectedPaths()
     {
-        if (Selection.activeObject!=null)
+        if (Selection.activeObject != null)
         {
-            return new string[]{AssetDatabase.GetAssetPath(Selection.activeObject)};
+            return new string[] { AssetDatabase.GetAssetPath(Selection.activeObject) };
         }
 
 
